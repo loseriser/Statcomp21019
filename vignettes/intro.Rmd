@@ -1,0 +1,29 @@
+---
+title: "Introduction to StatComp21019"
+author: "Hao Liang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to StatComp21019}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+For the PK, consider the the drug concentration defined as follows:
+$$
+C(t)=\sum_{j=1}^J\mathit{1}_{\{t-t_j>T_{inf_j}\}}\frac{d_{k,j}}{T_{inf_j}}\frac{1}{kV}(1-e^{-kT_{inf_j}})+\mathit{1}_{\{t-t_j\leq T_{inf_j}\&t-t_j\geq0\}}\frac{d_{k,j}}{T_{inf_j}}\frac{1}{kV}(1-e^{-k(t-t_j)})
+$$
+
+where $T_{inf_j}$ is the duration of the infusion of the $j^{th}$ administration, $V$ is the distribution volume, $Cl$ is the clearance of elimination, and $k$ is the micro-constant defined as $k = Cl/V.$ We assumed that the delay between successive doses was greater than the infusion duration, meaning that $t_{j+1} − t_j > T_{inf_J}$ for 
+$j \in \{1, \cdots, J − 1\}.$
+
+For the PD, the objective was to model cytokine mitigation when intrapatient dose-escalation was implemented.
+The cytokine production is stimulated by the drug
+concentration but inhibited by cytokine exposure through the AUC. The  cytokine response is defined as follows:
+$$
+\frac{\mathrm{d}E(t)}{\mathrm{d}t}=\frac{E_{max}C(t)^H}{EC^{50}+C(t)^H}\{1-\frac{I_{max}AUC_E(t)}{\frac{IC_{50}}{K^{J-1}}+AUC_E(t)}\}-k_{deg}E(t)
+$$
+
+where $AUC_E(t)$ is the cumulative cytokine exposure.$E_{max}$ is Maximum cytokine release rate.$EC^{50}$ is Drug exposure for half-maximum release.$H$ is Hill coefficient for cytokine release.$I_{max}$ is  Maximum inhibition of cytokine release.$IC_{50}$ is Cytokine exposure for half-maximum inhibition.$k_{deg}$ is  Degradation rate for cytokine.$K$ is Priming factor for cytokine release.

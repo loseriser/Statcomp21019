@@ -1055,7 +1055,7 @@ b_{1,d}=\frac{1}{n^2}\sum_{i,j=1}^n((X_i-\bar{x})^T\hat{\Sigma}^{-1}(X_j-\bar{X}
 <span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.1</span>; </span>
 <span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(p.values<span class="sc">&lt;</span>alpha)</span>
 <span id="cb94-12"><a href="#cb94-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pow)</span></code></pre></div>
-<pre><code>## [1] 0.14 0.18 0.64</code></pre>
+<pre><code>## [1] 0.46 0.36 0.74</code></pre>
 <ul>
 <li>Unequal variances and unequal expectations</li>
 </ul>
@@ -1071,7 +1071,7 @@ b_{1,d}=\frac{1}{n^2}\sum_{i,j=1}^n((X_i-\bar{x})^T\hat{\Sigma}^{-1}(X_j-\bar{X}
 <span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.1</span>; </span>
 <span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(p.values<span class="sc">&lt;</span>alpha)</span>
 <span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pow)</span></code></pre></div>
-<pre><code>## [1] 0.26 0.28 0.82</code></pre>
+<pre><code>## [1] 0.24 0.48 0.76</code></pre>
 <ul>
 <li>Non-normal distributions: t distribution with 1 df (heavy-tailed distribution), bimodel distribution (mixture of two normal distributions)</li>
 </ul>
@@ -1091,7 +1091,7 @@ b_{1,d}=\frac{1}{n^2}\sum_{i,j=1}^n((X_i-\bar{x})^T\hat{\Sigma}^{-1}(X_j-\bar{X}
 <span id="cb98-14"><a href="#cb98-14" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.1</span>; </span>
 <span id="cb98-15"><a href="#cb98-15" aria-hidden="true" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(p.values<span class="sc">&lt;</span>alpha)</span>
 <span id="cb98-16"><a href="#cb98-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pow)</span></code></pre></div>
-<pre><code>## [1] 0.32 0.72 0.56</code></pre>
+<pre><code>## [1] 0.36 0.76 0.50</code></pre>
 <ul>
 <li>Unbalanced samples (say, 1 case versus 10 controls)</li>
 </ul>
@@ -1116,7 +1116,7 @@ b_{1,d}=\frac{1}{n^2}\sum_{i,j=1}^n((X_i-\bar{x})^T\hat{\Sigma}^{-1}(X_j-\bar{X}
 <span id="cb100-19"><a href="#cb100-19" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.1</span>; </span>
 <span id="cb100-20"><a href="#cb100-20" aria-hidden="true" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(p.values<span class="sc">&lt;</span>alpha)</span>
 <span id="cb100-21"><a href="#cb100-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pow)</span></code></pre></div>
-<pre><code>## [1] 0.45 0.49 0.41</code></pre>
+<pre><code>## [1] 0.57 0.55 0.47</code></pre>
 </div>
 </div>
 <div id="hw7" class="section level2">
@@ -1900,9 +1900,9 @@ f(x,y)\propto \binom{n}{x}y^{x+a-1}(1-y)^{n-x+b-1},\quad x=0,1,\cdots,n,0\leq y 
 <span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>ts <span class="ot">&lt;-</span> microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(cc<span class="ot">&lt;-</span><span class="fu">cunif</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">min=</span><span class="sc">-</span><span class="dv">1</span>,<span class="at">max=</span><span class="dv">1</span>),</span>
 <span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a>rr<span class="ot">&lt;-</span><span class="fu">runif</span>(<span class="at">n=</span><span class="dv">1000</span>,<span class="at">min=</span><span class="sc">-</span><span class="dv">1</span>,<span class="at">max=</span><span class="dv">1</span>))</span>
 <span id="cb158-4"><a href="#cb158-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(ts)[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>)]</span></code></pre></div>
-<pre><code>##                                       expr    lq median   uq
-## 1 cc &lt;- cunif(n = 1000, min = -1, max = 1)  9.60   10.0 10.6
-## 2 rr &lt;- runif(n = 1000, min = -1, max = 1) 34.15   34.5 35.0</code></pre>
+<pre><code>##                                       expr   lq median    uq
+## 1 cc &lt;- cunif(n = 1000, min = -1, max = 1)  9.4    9.8 10.15
+## 2 rr &lt;- runif(n = 1000, min = -1, max = 1) 33.9   34.4 34.75</code></pre>
 <ul>
 <li>Comments your results.</li>
 </ul>

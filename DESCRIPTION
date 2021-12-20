@@ -14,8 +14,3 @@ Encoding: UTF-8
 VignetteBuilder: knitr
 URL: http://github.com/loseriser/StatComp21019
 BugReports: http://github.com/loseriser/StatComp21019/issues
-NeedsCompilation: yes
-Packaged: 2021-12-20 13:52:10 UTC; Lh
-Depends: R (>= 3.5.0)
-Built: R 4.1.2; x86_64-w64-mingw32; 2021-12-20 13:52:19 UTC; windows
-Archs: i386, x64
