@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: cytokine Response</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for Cytokine {StatComp21019}"><tr><td>Cytokine {StatComp21019}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>cytokine Response</h2>
+
+<h3>Description</h3>
+
+<p>A cytokine response function for the PD model
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+Cytokine(
+  t,
+  d,
+  t0 = c(1, 5, 9, 13, 17, 21, 25),
+  EMAX = 359000,
+  EC50 = 10000,
+  H = 0.92 * 0.9,
+  IMAX = 0.995,
+  IC = 18200,
+  KDEG = 3.6,
+  K = 2.83
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>t</code></td>
+<td>
+<p>the time</p>
+</td></tr>
+<tr valign="top"><td><code>d</code></td>
+<td>
+<p>the dose of drug</p>
+</td></tr>
+<tr valign="top"><td><code>t0</code></td>
+<td>
+<p>Administration time</p>
+</td></tr>
+<tr valign="top"><td><code>EMAX</code></td>
+<td>
+<p>Maximum cytokine release rate</p>
+</td></tr>
+<tr valign="top"><td><code>EC50</code></td>
+<td>
+<p>Drug exposure for half-maximum release</p>
+</td></tr>
+<tr valign="top"><td><code>H</code></td>
+<td>
+<p>Hill coefficient for cytokine release</p>
+</td></tr>
+<tr valign="top"><td><code>IMAX</code></td>
+<td>
+<p>Maximum inhibition of cytokine release</p>
+</td></tr>
+<tr valign="top"><td><code>IC</code></td>
+<td>
+<p>Cytokine exposure for half-maximum inhibition</p>
+</td></tr>
+<tr valign="top"><td><code>KDEG</code></td>
+<td>
+<p>Degradation rate for cytokine</p>
+</td></tr>
+<tr valign="top"><td><code>K</code></td>
+<td>
+<p>Priming factor for cytokine release</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of the cytokine response , its derivatives and its AUC.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+t&lt;-seq(from=0,to=35,by=0.02)
+plot(t,Cytokine(t=t,d=rep(25,7))$EE,type="l",lty=2,ylab="E(t)")
+abline(h=max(Cytokine(t=t,d=rep(25,7))$EE),lty=2)
+lines(t,Cytokine(t=t,d=c(1,5,10,rep(25,4)))$EE,type="l")
+abline(h=max(Cytokine(t=t,d=c(1,5,10,rep(25,4)))$EE),lty=1)
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>StatComp21019</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+</div></body></html>

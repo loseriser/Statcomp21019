@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: drug concentration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for Concentration {StatComp21019}"><tr><td>Concentration {StatComp21019}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>drug concentration</h2>
+
+<h3>Description</h3>
+
+<p>A 1-compartment infusion model for the PK
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+Concentration(
+  t,
+  d,
+  t0 = c(1, 5, 9, 13, 17, 21, 25),
+  Cl = 1.36 * 10,
+  V = 3.4,
+  tinf = rep(1e-05, 7)
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>t</code></td>
+<td>
+<p>the time</p>
+</td></tr>
+<tr valign="top"><td><code>d</code></td>
+<td>
+<p>the dose of drug</p>
+</td></tr>
+<tr valign="top"><td><code>t0</code></td>
+<td>
+<p>Administration time</p>
+</td></tr>
+<tr valign="top"><td><code>Cl</code></td>
+<td>
+<p>Clearance of elimination</p>
+</td></tr>
+<tr valign="top"><td><code>V</code></td>
+<td>
+<p>Volume of distribution</p>
+</td></tr>
+<tr valign="top"><td><code>tinf</code></td>
+<td>
+<p>the duration of the infusion of the jth administration</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>the cytokine response
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+t&lt;-seq(from=0,to=35,by=0.1)
+plot(t,Concentration(t=t,d=rep(25,7)),type = "l",lty=2,ylab="Concentration ")
+lines(t,Concentration(t=t,d=c(1,5,10,rep(25,4))),type = "l")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>StatComp21019</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+</div></body></html>
