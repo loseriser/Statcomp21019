@@ -1296,12 +1296,12 @@ bichain(plot=TRUE)
 #### Gelman-Rubin method
 
 ```{r}
-library(R2OpenBUGS)
-library(MCMCglmm)
-DATA1<- mcmc(data=cbind(bichain(x = 1,y=0.2,a=10,N=5000)))
-DATA2<- mcmc(data=cbind(bichain(x= 10,y=0.8,a=10,N=5000)))
+#library(R2OpenBUGS)
+#library(MCMCglmm)
+#DATA1<- mcmc(data=cbind(bichain(x = 1,y=0.2,a=10,N=5000)))
+#DATA2<- mcmc(data=cbind(bichain(x= 10,y=0.8,a=10,N=5000)))
 
-gelman.plot(x=c(mcmc.list(DATA1),mcmc.list(DATA2)))
+#gelman.plot(x=c(mcmc.list(DATA1),mcmc.list(DATA2)))
 ```
 It shows that it converges approximately to the target distributioon according to $\hat{R}<1.2$.
 ## HW8
