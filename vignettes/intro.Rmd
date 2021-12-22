@@ -19,6 +19,18 @@ $$
 where $T_{inf_j}$ is the duration of the infusion of the $j^{th}$ administration, $V$ is the distribution volume, $Cl$ is the clearance of elimination, and $k$ is the micro-constant defined as $k = Cl/V.$ We assumed that the delay between successive doses was greater than the infusion duration, meaning that $t_{j+1} − t_j > T_{inf_J}$ for 
 $j \in \{1, \cdots, J − 1\}.$
 
+
+```{r}
+ library(StatComp21019)
+ data(data)
+ attach(data)
+ t<-seq(from=0,to=35,by=0.1)
+ plot(t,Concentration(t=t,d=rep(25,7)),type = "l",lty=2,ylab="Concentration ")
+ lines(t,Concentration(t=t,d=dose2),type = "l")
+```
+
+
+
 For the PD, the objective was to model cytokine mitigation when intrapatient dose-escalation was implemented.
 The cytokine production is stimulated by the drug
 concentration but inhibited by cytokine exposure through the AUC. The  cytokine response is defined as follows:
@@ -27,3 +39,13 @@ $$
 $$
 
 where $AUC_E(t)$ is the cumulative cytokine exposure.$E_{max}$ is Maximum cytokine release rate.$EC^{50}$ is Drug exposure for half-maximum release.$H$ is Hill coefficient for cytokine release.$I_{max}$ is  Maximum inhibition of cytokine release.$IC_{50}$ is Cytokine exposure for half-maximum inhibition.$k_{deg}$ is  Degradation rate for cytokine.$K$ is Priming factor for cytokine release.
+
+```{r}
+t<-seq(from=0,to=35,by=0.02)
+ plot(t,Cytokine(t=t,d=rep(25,7))$EE,type="l",lty=2,ylab="E(t)")
+ abline(h=max(Cytokine(t=t,d=rep(25,7))$EE),lty=2)
+ lines(t,Cytokine(t=t,d=c(1,5,10,rep(25,4)))$EE,type="l")
+ abline(h=max(Cytokine(t=t,d=c(1,5,10,rep(25,4)))$EE),lty=1)
+```
+ 
+ 

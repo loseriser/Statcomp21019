@@ -1,10 +1,10 @@
 #' @title A dose regimen dataset
-#' @name Sa
+#' @name data
 #' @description A dataset used to show differnet  dose regimen.
 #' @examples
 #' \dontrun{
-#' data(Sa)
-#' attach(Sa)
+#' data(data)
+#' attach(data)
 #' t<-seq(from=0,to=35,by=0.1)
 #' plot(t,Concentration(t=t,d=rep(25,7)),type = "l",lty=2,ylab="Concentration ")
 #' lines(t,Concentration(t=t,d=dose2),type = "l")
